@@ -8,15 +8,14 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  signedin$: BehaviorSubject<boolean>;
+  signedin$: BehaviorSubject<boolean | null>;
   // signedin = false;
 
   constructor(private authService: AuthService) {
-    this.signedin$ = this.authService.signedin$
+    this.signedin$ = this.authService.signedin$;
   }
 
-  ngOnInit(){
-    this.authService.checkAuth().subscribe(()=>{});
+  ngOnInit() {
+    this.authService.checkAuth().subscribe(() => {});
   }
-
 }
